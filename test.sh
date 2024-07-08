@@ -1,6 +1,6 @@
 #!/bin/bash
-export Your_Name="Chang Guo"
-export ASU_ID="0123456789"
+export Your_Name="Nolan Vaughn"
+export ASU_ID="1229650437"
 
 message="[CSE330][Fall2023][Project-3][ASUID:$ASU_ID][$Your_Name]"
 
@@ -44,10 +44,10 @@ if [[ $1 -eq 1 ]]; then
     echo "dmseg output:"
     dmesg | tail -n 5
 
-
     echo ""
     echo "---------------------- Test Case: 3 -----------------------------"
     echo "read from middle:"
+    # head -c 29 /proc/my_proc_file
     dd if=/proc/my_proc_file bs=1 skip=29 count=18 2> /dev/null
 
     echo ""
