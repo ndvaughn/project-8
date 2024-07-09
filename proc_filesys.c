@@ -33,11 +33,11 @@ static ssize_t read_from_kernel(struct file *file, char __user *user_buffer, siz
     // General solution: initialize retval to count
     // Bonus solution for Test Case 5: initialize retval to the minimum value between count and the length of the message
     // Hint: Only one line of code is needed
-    retval = min(count,100);
+    retval = min(strlen(kernel_buffer) - *ppos, count);
 
     // TODO 3: copy from the kernel buffer to user buffer by using copy_to_user()
     // Hint: Only one line of code is needed
-    copy_to_user(user_buffer, kernel_buffer, count);
+    copy_to_user(user_buffer, kernel_buffer + *ppos, count);
 
     pr_info("Read %zd bytes from kernel space starting at position %lld\n", retval, *ppos);
     pr_info("Read from kernel space: %.*s\n", (int)retval, kernel_buffer + *ppos);
